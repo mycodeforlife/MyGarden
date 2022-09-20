@@ -1,6 +1,6 @@
 # from flask_mysqldb import MySQL
 import pymysql
-
+import json
 
 class dataInterface:
 
@@ -13,8 +13,10 @@ class dataInterface:
         get_query = "SELECT * FROM gardentools;"
         db_cursor = self.connection.cursor()
         db_cursor.execute(get_query)
-        data_set = db_cursor.fetchall()
-        print(data_set)
+        desc = db_cursor.description
+        column_names = [col[0] for col in desc]
+        data = [dict(zip(column_names, row)) for row in db_cursor.fetchall()]
+        return data
 
     def get_garden_calender(self):
         pass

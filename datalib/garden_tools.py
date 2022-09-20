@@ -10,7 +10,8 @@ class GardenTools:
         self.data_inter = dataInterface()
 
     def get_garden_tools_json_data(self):
-        self.data_inter.get_garden_tools()
+        data = self.data_inter.get_garden_tools()
+        return data
 
     def get_garden_calender_json_data(self):
         pass
