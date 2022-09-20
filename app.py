@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import Flask, jsonify
-import datalib
+from datalib import garden_tools
 
 app = Flask(__name__)
 
@@ -11,11 +11,8 @@ def index():
 
 @app.route('/v1/garden/gettools', methods=['GET'])
 def gettools():
-
-    tools_json = [{"toolname": "hand fork", "toolusage": "used for loosening garden soil in small area",
-                    "toolsize": "less than 1 feet", "warning": "Sharp edges might cause injury"},
-                      {"toolname": "pruner", "toolusage": "used for pruning the leafs or small branches",
-                       "toolsize": "6 to 8 inches", "warning": "keep it locked when not in use"}]
+    garden_tools_obj = garden_tools.GardenTools()
+    tools_json = garden_tools_obj.get_garden_tools_json_data()
     return jsonify(tools_json)
 
 
