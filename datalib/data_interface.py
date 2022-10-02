@@ -1,8 +1,8 @@
 # from flask_mysqldb import MySQL
 import pymysql
-import json
 
-class dataInterface:
+
+class DataInterface:
 
     connection = pymysql.connect(host="localhost", user="root", passwd="art@6085", db="mygarden")
 
@@ -25,7 +25,7 @@ class dataInterface:
         pass
 
 
-class dataConverter:
+class DataConverter:
 
     def __init__(self):
         pass
@@ -35,6 +35,3 @@ class dataConverter:
 
     def convert_to_sql_query(self):
         pass
-
-
-

@@ -1,2 +1,3 @@
-from .data_interface import dataInterface
+from .data_interface import *
+
 
