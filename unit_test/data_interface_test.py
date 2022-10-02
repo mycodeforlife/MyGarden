@@ -1,9 +1,10 @@
 import unittest
-from data_interface import dataInterface
+from datalib import data_interface
+
 
 class DataInterfaceTest(unittest.TestCase):
 
-    data_interface = dataInterface()
+    data_interface = data_interface.DataInterface()
 
     def test_mysql_connection(self):
         pass
