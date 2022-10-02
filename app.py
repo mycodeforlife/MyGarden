@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, json, request
 from datalib import garden_tools
 
 app = Flask(__name__)
@@ -24,6 +24,13 @@ def getplantingCalender():
 @app.route('/v1/garden/getrecentposts', methods=['GET'])
 def getrecentposts():
     pass
+
+
+@app.route('/v1/garden/addnewtool', methods=['POST'])
+def addnewgardentool():
+    record = json.loads(request.data)
+    print(record)
+    return jsonify({'message': 'record added'})
 
 
 @app.route('/v1/garden/postmystory', methods=['POST'])
